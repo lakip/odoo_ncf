@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="farmer_registration_form" model="ir.ui.view">
+        <field name="name">farmer.registration.form</field>
+        <field name="model">farmer.registration</field>
+        <field name="arch" type="xml">
+            <form string="Farmer">
+                <sheet>
+                    <group>
+                        <field name="first_name"/>
+                        <field name="second_name"/>
+                        <field name="ID"/>
+                        <field name="phone"/>
+                        <field name="berry_number"/>
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="farmer_registration_tree" model="ir.ui.view">
+        <field name="name">farmer.registration.tree</field>
+        <field name="model">farmer.registration</field>
+        <field name="arch" type="xml">
+            <tree string="Farmer">
+                <field name="first_name"/>
+                <field name="second_name"/>
+                <field name="ID"/>
+                <field name="phone"/>
+                <field name="berry_number"/>
+
+            </tree>
+        </field>
+    </record>
+    <act_window
+            id="action_farmer_registration"
+            res_model="farmer.registration"
+            name="Farmer"
+            view_mode="tree,form"
+    />
+    <menuitem id="menu_farmer"
+              name="Register Farmer"
+              action="action_farmer_registration"
+              parent="main_menu_farmer_registration"
+              sequence="1"/>
+</odoo>

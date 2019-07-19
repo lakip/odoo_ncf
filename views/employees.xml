@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="ncf_employees_form" model="ir.ui.view">
+        <field name="name">ncf.employees.form</field>
+        <field name="model">ncf.employees</field>
+        <field name="arch" type="xml">
+            <form string="NCF Employee">
+                <sheet>
+                    <group>
+                        <field name="fname"/>
+                        <field name="sname"/>
+                        <field name="id_no"/>
+                        <field name="employment_date"/>
+                        <field name="employee_type"/>
+                        <field name="job_group"/>
+                        <field name="salary"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="ncf_employees_tree" model="ir.ui.view">
+        <field name="name">ncf.employees.tree</field>
+        <field name="model">ncf.employees</field>
+        <field name="arch" type="xml">
+            <tree string="NCF Employee">
+                <field name="fname"/>
+                <field name="sname"/>
+                <field name="id_no"/>
+                <field name="employment_date"/>
+                <field name="employee_type"/>
+                <field name="job_group"/>
+                <field name="salary"/>
+            </tree>
+        </field>
+
+    </record>
+    <act_window id="action_ncf_employees"
+                name="ncf employees"
+                res_model="ncf.employees"
+                view_mode="tree,form"
+    />
+    <menuitem id="menu_ncf_employees"
+              name="Employees"
+              action="action_ncf_employees"
+              parent="admin_panel"
+              sequence="1"
+    />
+
+
+</odoo>

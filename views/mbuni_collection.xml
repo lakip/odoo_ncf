@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="mbuni_collection_form" model="ir.ui.view">
+        <field name="name">mbuni_collection.form</field>
+        <field name="model">mbuni.collection</field>
+        <field name="arch" type="xml">
+            <form string="Mbuni Collection">
+                <sheet>
+                    <group>
+                        <field name="berry_number"/>
+                        <field name="first_name"/>
+                        <field name="second_name"/>
+                        <field name="kilograms" sum="Total"/>
+                        <field name="date"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="mbuni_collection_tree" model="ir.ui.view">
+        <field name="name">mbuni_collection.tree</field>
+        <field name="model">mbuni.collection</field>
+        <field name="arch" type="xml">
+            <tree string="Mbuni Collection">
+                <field name="berry_number"/>
+                <field name="first_name"/>
+                <field name="second_name"/>
+                <field name="kilograms" sum="Total"/>
+                <field name="date"/>
+            </tree>
+        </field>
+    </record>
+    <act_window id="act_mbuni"
+                name="Mbuni"
+                res_model="mbuni.collection"
+                view_mode="tree,form"
+                />
+    <menuitem id="menu_mbuni_collection"
+              action="act_mbuni"
+              name="Mbuni Collection"
+              parent="main_menu_berry_collection"
+              sequence="2"
+              />
+
+</odoo>

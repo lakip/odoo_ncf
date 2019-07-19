@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <menuitem id="main_menu" name="NCF"/>
+
+    <menuitem id="main_menu_farmer_registration"
+              name="Farmer Registration"
+              parent="main_menu"
+              sequence="1"
+    />
+
+    <menuitem id="main_menu_berry_collection"
+              name="Berry Collection"
+              parent="main_menu"
+              sequence="2"
+    />
+
+    <menuitem id="admin_panel"
+              name="Administration"
+              parent="main_menu"
+              sequence="3"/>
+    <menuitem id="admin_finances"
+              name="Finances"
+              parent="main_menu"
+              sequence="4"
+    />
+    <menuitem id="ncf_finances" name="Finances" parent="admin_panel" sequence="1"/>
+
+    <menuitem id="ncf_sales" name="Sales" sequence="4" parent="main_menu"/>
+    <menuitem id="ncf_orders" name="Orders" parent="ncf_sales" action="sale.action_orders" sequence="2"/>
+    <menuitem id="ncf_quatation" name="Quotations" parent="ncf_sales" sequence="1" action="sale.action_quotations"/>
+</odoo>

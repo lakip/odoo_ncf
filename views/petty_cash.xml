@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="petty_cash_form" model="ir.ui.view">
+        <field name="name">petty_cash.form</field>
+        <field name="model">ncf.petty.cash</field>
+        <field name="arch" type="xml">
+            <form string="Petty cash">
+                <sheet>
+                    <group>
+                        <field name="receipt_number"/>
+                        <field name="date"/>
+                        <field name="amount" sum="Total"/>
+                    </group>
+                    <notebook>
+                        <page name="description" string="Description">
+                            <field name="description"/>
+                        </page>
+
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="petty_cash_tree" model="ir.ui.view">
+        <field name="name">petty_cash.tree</field>
+        <field name="model">ncf.petty.cash</field>
+        <field name="arch" type="xml">
+            <tree string="Petty cash">
+                <field name="receipt_number"/>
+                <field name="date"/>
+                <field name="amount"/>
+            </tree>
+        </field>
+    </record>
+    <act_window id="ncf_petty_cash"
+                name="petty_cash"
+                res_model="ncf.petty.cash"
+                view_mode="tree,form"
+                />
+    <menuitem id="menu_petty_cash_sub"
+              name="Petty Cash"
+              action="ncf_petty_cash"
+              parent="admin_finances"
+              sequence="2"
+              />
+
+
+</odoo>
