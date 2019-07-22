@@ -8,8 +8,7 @@
                 <sheet>
                     <group>
                         <field name="berry_number"/>
-                        <field name="first_name"/>
-                        <field name="second_name"/>
+                        <field name="name"/>
                         <field name="kilograms" sum="Total"/>
                         <field name="date"/>
                     </group>
@@ -24,8 +23,7 @@
         <field name="arch" type="xml">
             <tree string="Mbuni Collection">
                 <field name="berry_number"/>
-                <field name="first_name"/>
-                <field name="second_name"/>
+                <field name="name"/>
                 <field name="kilograms" sum="Total"/>
                 <field name="date"/>
             </tree>

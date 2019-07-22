@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="ncf_salaries_form" model="ir.ui.view">
+        <field name="name">ncf.salaries.form</field>
+        <field name="model">ncf.salaries</field>
+        <field name="arch" type="xml">
+            <form string="Salaries">
+                <sheet>
+                    <group>
+                        <field name="id_no"/>
+                        <field name="fname"/>
+                        <field name="sname"/>
+                        <field name="salary"/>
+                        <field name="amount_paid"/>
+                        <field name="date_of_payment" placeholer='enter amount of salary paid'/>
+                    </group>
+                    <notebook>
+                        <page string="Description">
+                            <field name="description" placeholder='write only on advance salary payment'/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="ncf_salaries_tree" model="ir.ui.view">
+        <field name="name">ncf.salaries.tree</field>
+        <field name="model">ncf.salaries</field>
+        <field name="arch" type="xml">
+            <tree string="Salaries">
+                <field name="id_no"/>
+                <field name="fname"/>
+                <field name="sname"/>
+                <field name="salary"/>
+                <field name="amount_paid"/>
+                <field name="date_of_payment"/>
+            </tree>
+        </field>
+    </record>
+    <act_window id="ncf_salaries"
+                name="salaries"
+                res_model="ncf.salaries"
+                view_mode="tree,form"
+    />
+    <menuitem id="ncf_salaries_sub"
+              name="Salaries"
+              action="ncf_salaries"
+              parent="admin_finances"
+              sequence="2"
+    />
+
+
+</odoo>

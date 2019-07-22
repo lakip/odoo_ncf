@@ -2,40 +2,60 @@
 <odoo>
     <record id="farmer_registration_form" model="ir.ui.view">
         <field name="name">farmer.registration.form</field>
-        <field name="model">farmer.registration</field>
+        <field name="model">ncf.farmer.registration</field>
         <field name="arch" type="xml">
             <form string="Farmer">
                 <sheet>
-                    <group>
-                        <field name="first_name"/>
-                        <field name="second_name"/>
-                        <field name="ID"/>
-                        <field name="phone"/>
-                        <field name="berry_number"/>
-
-                    </group>
+                    <div id="o_employee_container"><div id="o_employee_main">
+                        <field name="image" widget="image" class="oe_avatar" options="{&quot;preview_image&quot;:&quot;image_medium&quot;}"/>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" placeholder="Farmer's Name" required="True"/>
+                                <field name="berry_number" placeholder="Berry Number" required="True"/>
+                            </h1>
+                        </div>
+                        <notebook>
+                            <page name="personal_information" string="Farmer`s Information" groups="hr.group_hr_user">
+                                <group>
+                                    <group string="Other Information">
+                                        <field name="identification_id" groups="hr.group_hr_user" required="True"/>
+                                    </group>
+                                    <group string="Contact Information" required="True">
+                                        <field name="address_home_id" required="True"/>
+                                        <field name="place_of_residence" required="True"/>
+                                    </group>
+                                    <group string="Status">
+                                        <field name="gender" required="True"/>
+                                        <field name="marital" required="True"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page name="Bank_information" string="Bank Details" groups="hr.group_hr_user">
+                                <group string="Bank Information" required="True">
+                                    <field name="bank_name" required="True"/>
+                                    <field name="bank_account_id" required="True"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </div></div>
                 </sheet>
             </form>
-        </field>
-    </record>
-
+        </field></record>
     <record id="farmer_registration_tree" model="ir.ui.view">
         <field name="name">farmer.registration.tree</field>
-        <field name="model">farmer.registration</field>
+        <field name="model">ncf.farmer.registration</field>
         <field name="arch" type="xml">
             <tree string="Farmer">
-                <field name="first_name"/>
-                <field name="second_name"/>
-                <field name="ID"/>
-                <field name="phone"/>
-                <field name="berry_number"/>
-
+                <field name="name" placeholder="Farmer's Name" required="True"/>
+                <field name="berry_number" placeholder="Berry Number" required="True"/>
+                <field name="identification_id" groups="hr.group_hr_user"/>
             </tree>
         </field>
     </record>
     <act_window
             id="action_farmer_registration"
-            res_model="farmer.registration"
+            res_model="ncf.farmer.registration"
             name="Farmer"
             view_mode="tree,form"
     />
