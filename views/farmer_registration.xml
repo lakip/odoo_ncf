@@ -26,6 +26,7 @@
                                         <field name="place_of_residence" required="True"/>
                                     </group>
                                     <group string="Status">
+                                        <field name="initials" on_change="onchange(initials, gender)"/>
                                         <field name="gender" required="True"/>
                                         <field name="marital" required="True"/>
                                     </group>
