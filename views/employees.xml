@@ -30,7 +30,6 @@
                 <attribute name="invisible">1</attribute>
             </xpath>
 
-
         </field>
     </record>
     <record id="view__form" model="ir.ui.view">

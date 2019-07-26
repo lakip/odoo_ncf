@@ -20,6 +20,7 @@
         'views/mbuni_collection.xml',
         'views/employees.xml',
         'views/petty_cash.xml',
+        'report/berry_report.xml',
     ],
     'demo': [],
     'installable': True,

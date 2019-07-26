@@ -20,6 +20,7 @@
                                 <group>
                                     <group string="Other Information">
                                         <field name="identification_id" groups="hr.group_hr_user" required="True"/>
+                                        <field name="phone_no" required="True"/>
                                     </group>
                                     <group string="Contact Information" required="True">
                                         <field name="address_home_id" required="True"/>
@@ -29,6 +30,10 @@
                                         <field name="initials" on_change="onchange(initials, gender)"/>
                                         <field name="gender" required="True"/>
                                         <field name="marital" required="True"/>
+                                        <field name="birthday"/>
+                                        <field name="current_date" readonly="1"/>
+                                        <field name="age"/>
+
                                     </group>
                                 </group>
                             </page>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="report_productlabel">
+        <t t-call="web.basic_layout">
+            <div class="page">
+                <t t-foreach="docs" t-as="doc">
+                    <div class="col-xs-3">
+                        <div t-field="res_company.partner_id"
+                             t-field-options='{
+                                            "widget": "contact",
+                                            "fields": ["address", "name", "phone"]}'
+                        />
+                    </div>
+                </t>
+            </div>
+            <div class="page">
+                <table class="table table-condensed">
+                    <thead>
+                        <tr>
+                            <th class="col-xs-1">Berry Number</th>
+                            <th class="col-xs-2">Farmer`s Name</th>
+                            <th class="col-xs-2">Kilograms</th>
+                            <th class="col-xs-1" >Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="docs" t-as="doc">
+                            <div class="row">
+                                <div class="col-xs-1">
+                                    <td class="text-left">
+                                        <span t-field="doc.berry_number"/>
+                                    </td>
+                                </div>
+                                <div class="col-xs-2">
+                                    <td class="text-left">
+                                        <span t-field="doc.name"/>
+                                    </td>
+                                </div>
+                                <div class="col-xs-2">
+                                    <td class="text-left">
+                                        <span t-field="doc.kilograms"/>
+                                    </td>
+                                </div>
+                                <div class="col-xs-1">
+                                    <td class="text-left">
+                                        <span t-field="doc.date"/>
+                                    </td>
+                                </div>
+                            </div>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </template>
+    <report
+            id="report_product_label"
+            string="Berry Collection"
+            model="berry.collection"
+            report_type="qweb-pdf"
+            name="NCF.report_productlabel"
+            file="NCF.report_productlabel"
+
+    />
+</odoo>
