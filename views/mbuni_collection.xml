@@ -7,11 +7,22 @@
             <form string="Mbuni Collection">
                 <sheet>
                     <group>
-                        <field name="berry_number"/>
-                        <field name="name"/>
-                        <field name="kilograms" sum="Total"/>
-                        <field name="date"/>
+                        <group>
+                            <field name="berry_number"/>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field name="date" readonly="1"/>
+                        </group>
                     </group>
+                    <notebook>
+                        <page string="Other Lines">
+                            <group>
+                                <field name="kilograms"/>
+                            </group>
+                        </page>
+                    </notebook>
+
                 </sheet>
             </form>
         </field>
@@ -33,12 +44,12 @@
                 name="Mbuni"
                 res_model="mbuni.collection"
                 view_mode="tree,form"
-                />
+    />
     <menuitem id="menu_mbuni_collection"
               action="act_mbuni"
               name="Mbuni Collection"
               parent="main_menu_berry_collection"
               sequence="2"
-              />
+    />
 
 </odoo>

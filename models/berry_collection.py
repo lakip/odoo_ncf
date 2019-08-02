@@ -11,3 +11,5 @@ class BerryCollection(models.Model):
     name = fields.Char(related='berry_number.name', readonly=True)
     date = fields.Date(string='Date', default=datetime.today())
     kilograms = fields.Float('Kilograms')
+
+

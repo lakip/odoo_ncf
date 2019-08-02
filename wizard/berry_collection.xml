@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="berry_collection_form" model="ir.ui.view">
+        <field name="name">berry_collection.form</field>
+        <field name="model">berry.collection</field>
+        <field name="arch" type="xml">
+                <div>
+                    <button name="%(open_wizard_action_id)d" type="action" string="Send Mail" class="oe_highlight"/>
+                </div>
+            <form string="Berry Collection">
+                <sheet>
+                    <group>
+                        <field name="berry_number"/>
+                        <field name="name"/>
+                        <field name="kilograms" sum="Total"/>
+                        <field name="date" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="berry_collection_tree" model="ir.ui.view">
+        <field name="name">berry_collection.tree</field>
+        <field name="model">berry.collection</field>
+        <field name="arch" type="xml">
+            <tree string="Berry Collection">
+                <field name="berry_number"/>
+                <field name="name"/>
+                <field name="kilograms" sum="Total"/>
+                <field name="date"/>
+            </tree>
+        </field>
+    </record>
+    <template id="report_productlabel">
+        <t t-call="web.basic_layout">
+            <div class="page">
+                <t t-foreach="docs" t-as="doc">
+                    <div class="col-xs-3">
+                        <div t-field="res_company.partner_id"
+                             t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}' />
+                    </div>
+                </t>
+            </div>
+            <div class="page">
+                <table class="table table-condensed">
+                    <thead>
+                        <tr>
+                            <th class="col-xs-1">Berry Number</th>
+                            <th class="col-xs-2">Farmer`s Name</th>
+                            <th class="col-xs-2">Kilograms</th>
+                            <th class="col-xs-1" >Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="docs" t-as="doc">
+                            <div class="row">
+                                <div class="col-xs-1">
+                                    <td class="text-left">
+                                        <span t-field="doc.berry_number"/>
+                                    </td>
+                                </div>
+                                <div class="col-xs-2">
+                                    <td class="text-left">
+                                        <span t-field="doc.name"/>
+                                    </td>
+                                </div>
+                                <div class="col-xs-2">
+                                    <td class="text-left">
+                                        <span t-field="doc.kilograms"/>
+                                    </td>
+                                </div>
+                                <div class="col-xs-1">
+                                    <td class="text-left">
+                                        <span t-field="doc.date"/>
+                                    </td>
+                                </div>
+                            </div>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </template>
+    <report
+            id="report_product_label"
+            string="Berry Collection"
+            model="berry.collection"
+            report_type="qweb-pdf"
+            name="ncf_sys.report_productlabel"
+            file="ncf_sys.report_productlabel"
+    />
+
+    <act_window id="act_berry_collection"
+                name="Berry Collection"
+                res_model="berry.collection"
+                view_mode="tree,form"
+    />
+    <menuitem id="menu_berry_collection"
+              name="Berry Collection"
+              parent="main_menu_berry_collection"
+              sequence="1"
+              action="act_berry_collection"/>
+</odoo>

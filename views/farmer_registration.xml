@@ -31,7 +31,7 @@
                                         <field name="gender" required="True"/>
                                         <field name="marital" required="True"/>
                                         <field name="birthday"/>
-                                        <field name="current_date" readonly="1"/>
+                                        <field name="current_date" invisible="1" readonly="1"/>
                                         <field name="age"/>
 
                                     </group>

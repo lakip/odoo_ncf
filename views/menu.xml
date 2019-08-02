@@ -2,27 +2,12 @@
 <odoo>
     <menuitem id="main_menu" name="NCF"/>
 
-    <menuitem id="main_menu_farmer_registration"
-              name="Farmer Registration"
-              parent="main_menu"
-              sequence="1"
-    />
+    <menuitem id="main_menu_farmer_registration" name="Farmer Registration" parent="main_menu" sequence="1"/>
 
-    <menuitem id="main_menu_berry_collection"
-              name="Berry Collection"
-              parent="main_menu"
-              sequence="2"
-    />
+    <menuitem id="main_menu_berry_collection" name="Berry Collection" parent="main_menu" sequence="2"/>
 
-    <menuitem id="admin_panel"
-              name="Administration"
-              parent="main_menu"
-              sequence="3"/>
-    <menuitem id="admin_finances"
-              name="Finances"
-              parent="main_menu"
-              sequence="4"
-    />
+    <menuitem id="admin_panel" name="Administration" parent="main_menu" sequence="3"/>
+    <menuitem id="admin_finances" name="Finances" parent="main_menu" sequence="4"/>
     <menuitem id="ncf_employee_payslip" name="Employee Payslip" action="hr_payroll.action_view_hr_payslip_form"
               sequence="1" parent="admin_finances"/>
     <menuitem id="ncf_finances" name="Finances" parent="admin_panel" sequence="1"/>
