@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="send_message_form" model="ir.ui.view">
+        <field name="name">send.message.form</field>
+        <field name="model">send.collection.message</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="line_ids" options="{'no_create': True}"/>
+                </group>
+                <div class="footer">
+                    <button name="action_send_mail" type="object" string="Send Now" class="oe_highlight"/> |
+                    <button name="cancel" type="special" string="Cancel" class="oe_highlight"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <act_window
+        name="Send Message"
+        res_model="send.collection.message"
+        src_model="mbuni.collection"
+        view_mode="form"
+        context="{'default_line_ids': active_ids}"
+        target="new"
+        key2="client_action_multi"
+        id="action_send_order_mail"/>
+
+</odoo>
